@@ -33,7 +33,7 @@ def addProduto():
 
 @app.route('/addVenda')
 def addVenda():
-  return render_template('addvenda.html')
+  return render_template('addVenda.html')
 
 #DELETE
 @app.route('/delCliente/<int:id>', methods = ['GET'])

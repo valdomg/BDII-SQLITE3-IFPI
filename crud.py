@@ -124,3 +124,5 @@ def delRegistroCliente(id):
     else:
         print('ID INVÁLIDO, TENTE NOVAMENTE')
 
+
+criarTabelas()
