@@ -35,6 +35,9 @@
             <td>{{row[3]}}</td>
             <td>{{row[4]}}</td>
             <td>{{row[5]}}</td>
+            <td>
+                <a href="{{url_for('delProduto', id=row[0])}}">Deletar</a>
+            </td>
 
         </tr>
         {% endfor %}

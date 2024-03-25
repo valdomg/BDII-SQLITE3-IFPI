@@ -4,9 +4,7 @@ from crud import verificarID
 
 app = Flask(__name__)
 
-
-  
-
+#READ
 @app.route("/")
 def home():
   banco = sqlite3 .connect('vendas.db')
@@ -21,8 +19,10 @@ def home():
   cursor.execute('SELECT * FROM venda')
   venda = cursor.fetchall()
 
+  banco.close()
   return render_template('home.html', cliente = cliente, produto = produto, venda = venda)
 
+#CREATE
 @app.route('/addCliente')
 def addCliente():
   return render_template('addCliente.html')
@@ -35,17 +35,29 @@ def addProduto():
 def addVenda():
   return render_template('addvenda.html')
 
+#DELETE
 @app.route('/delCliente/<int:id>', methods = ['GET'])
 def delCliente(id):
-    banco = sqlite3.connect('vendas.db', check_same_thread=False)
+    banco = sqlite3.connect('vendas.db')
     cursor = banco.cursor()
 
-    if verificarID('cliente', 'idcliente',id):
-      cursor.execute(f'DELETE FROM cliente WHERE idcliente = {id}')
-      banco.commit()
-      flash('DADOS DELETADOS')
+    cursor.execute(f'DELETE FROM cliente WHERE idcliente = {id}')
+    banco.commit()
+    banco.close()
+    flash('DADOS DELETADOS')
     
     return redirect(url_for('home'))
+
+@app.route('/delProduto/<int:id>', methods = ['GET'])
+def delProduto(id):
+  banco = sqlite3.connect('vendas.db')
+  cursor = banco.cursor()
+
+  cursor.execute(f'DELETE FROM produto WHERE idprod = {id}')
+  banco.commit()
+  banco.close()
+  return redirect(url_for('home'))
+
 
 if __name__ == "__main__":
   app.secret_key = 'admin123' 
