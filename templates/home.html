@@ -17,6 +17,9 @@
             <td>{{row[3]}}</td>
             <td>{{row[4]}}</td>
             <td>{{row[5]}}</td>
+            <td>
+                <a href="{{url_for('delCliente', id=row[0])}}">Deletar</a>
+            </td>
 
         </tr>
         {% endfor %}
@@ -51,6 +54,12 @@
         </tr>
         {% endfor %}
     </table>
+
+    <div class="button">
+        <a href="{{url_for('addCliente')}}">Adicionar Cliente</a>
+        <a href="{{url_for('addProduto')}}">Adicionar Produto</a>
+        <a href="{{url_for('addVenda')}}">Adicionar Venda</a>
+    </div>
 
 
 </body>
