@@ -43,6 +43,9 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS venda(
 
 #Função para verificar se existe o ID na tabela
 def verificarID(tabela, coluna, id):
+    banco = sqlite3.connect('vendas.db', check_same_thread=False)
+    cursor = banco.cursor()
+
     cursor.execute(f'SELECT {coluna} FROM {tabela}')
     lista = cursor.fetchall()
     for i in range (len(lista)):
@@ -103,6 +106,12 @@ def delRegistroCliente(id):
 
 #INSERÇÃO DE DADOS
 
+inserirClientes(1,"João Silva", "1990-05-15", "São Paulo", "123456789", "joao@email.com")
+inserirClientes(1,"Maria Santos", "1985-08-20", "Rio de Janeiro", "987654321", "maria@email.com")
+inserirClientes(1,"Pedro Oliveira", "1978-03-10", "Belo Horizonte", "555666777", "pedro@email.com")
+inserirClientes(1,"Ana Souza", "1995-11-25", "Salvador", "111222333", "ana@email.com")
+inserirClientes(1,"Lucas Costa", "1980-09-05", "Porto Alegre", "999888777", "lucas@email.com")
+
 '''clientes = [
     ("João Silva", "1990-05-15", "São Paulo", "123456789", "joao@email.com"),
     ("Maria Santos", "1985-08-20", "Rio de Janeiro", "987654321", "maria@email.com"),
@@ -110,6 +119,7 @@ def delRegistroCliente(id):
     ("Ana Souza", "1995-11-25", "Salvador", "111222333", "ana@email.com"),
     ("Lucas Costa", "1980-09-05", "Porto Alegre", "999888777", "lucas@email.com")
 ]
+
 
 produtos_supermercado = [
     ("Arroz", 12.99, "Tio João", "Alimentos", 50),
