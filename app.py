@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, flash
+from flask import Flask, render_template, redirect, url_for, flash, request
 import sqlite3
 from crud import verificarID
 
@@ -58,6 +58,23 @@ def delProduto(id):
   banco.close()
   return redirect(url_for('home'))
 
+@app.route('/delVenda/<int:id>', methods = ['GET'])
+def delVenda(id):
+  banco = sqlite3.connect('vendas.db')
+  cursor = banco.cursor()
+
+  cursor.execute(f'DELETE FROM venda WHERE idvenda = {id}')
+  banco.commit()
+  banco.close()
+  return redirect(url_for('home'))
+
+'''
+
+@app.route('/detalharCliente/<int:id>', methods = ['GET', 'POST'])
+def editarCliente(id):
+  if request.method == 'GET':
+
+'''
 
 if __name__ == "__main__":
   app.secret_key = 'admin123' 

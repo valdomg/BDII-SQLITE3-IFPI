@@ -123,6 +123,4 @@ def delRegistroCliente(id):
         banco.commit()
     else:
         print('ID INVÁLIDO, TENTE NOVAMENTE')
-
-
-criarTabelas()
+        
