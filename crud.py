@@ -16,6 +16,7 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS cliente (
                     telefone TEXT
             )''')
 
+
 #tabela produto
 cursor.execute('''CREATE TABLE IF NOT EXISTS produto(
                     idprod INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -25,6 +26,7 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS produto(
                     categoria TEXT NOT NULL,
                     qtd INTEGER NOT NULL
             )''')
+
 
 #tabela venda
 cursor.execute('''CREATE TABLE IF NOT EXISTS venda(
@@ -37,6 +39,7 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS venda(
                FOREIGN KEY (idcliente) references cliente(idcliente),
                FOREIGN KEY (idprod) references produto(idprod)
 )''')
+
 
 #Função para verificar se existe o ID na tabela
 def verificarID(tabela, coluna, id):
@@ -59,6 +62,7 @@ def inserirClientes(id,nome, data_nasc, cidade, telefone, email):
 def inserirProdutos(id,nome, preco, marca, categoria, qtd):
     cursor.execute('INSERT INTO produto VALUES(?,?,?,?,?,?)',(None,nome, preco, marca, categoria, qtd))
     banco.commit()        
+
             
 #Função de inserção de vendas
 def inserirVendas(idvenda,data_venda, valor_total, idcliente, idprod, nomeFunc):
@@ -69,13 +73,15 @@ def inserirVendas(idvenda,data_venda, valor_total, idcliente, idprod, nomeFunc):
     else:
         print('DADOS INVÁLIDOS, TENTE NOVAMENTE')
 
-#Deletear alguma venda
+
+#Deletar alguma venda
 def delRegistroVendas(id):
     if verificarID('venda', 'idvenda', id):
         cursor.execute(f'DELETE FROM venda WHERE idvenda={id}')
         banco.commit()
     else:
         print('ID INVÁLIDO, TENTE NOVAMENTE')
+
 
 #Deletar algum produto
 def delRegistroProduto(id):
@@ -85,6 +91,7 @@ def delRegistroProduto(id):
     else:
         print('ID INVÁLIDO, TENTE NOVAMENTE')
 
+
 #Deletar algum cliente
 def delRegistroCliente(id):
     if verificarID('cliente', 'idcliente', id):
@@ -93,9 +100,10 @@ def delRegistroCliente(id):
     else:
         print('ID INVÁLIDO, TENTE NOVAMENTE')
 
+
 #INSERÇÃO DE DADOS
 
-clientes = [
+'''clientes = [
     ("João Silva", "1990-05-15", "São Paulo", "123456789", "joao@email.com"),
     ("Maria Santos", "1985-08-20", "Rio de Janeiro", "987654321", "maria@email.com"),
     ("Pedro Oliveira", "1978-03-10", "Belo Horizonte", "555666777", "pedro@email.com"),
@@ -117,6 +125,5 @@ vendas = [
     (None, '2024-03-25', 50.00, 3, 2, 'Pedro'),
     (None, '2024-03-25', 120.00, 1, 4, 'Ana'),
     (None, '2024-03-26', 80.00, 2, 5, 'Lucas')
-]
+]'''
 
-inserirVendas(None, '2024-03-26', 80.00, 2, 5, 'Lucas')

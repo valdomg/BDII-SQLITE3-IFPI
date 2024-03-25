@@ -6,6 +6,52 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello world!</h1>
+    <h1>Supermercado AloiUala</h1>
+    <table>
+        <tr></tr>
+        {% for row in cliente %}
+        <tr>
+            <td>{{row[0]}}</td> <!--LINE WITH DATA FROM TABLE CONTACTS COLUNM ID-->
+            <td>{{row[1]}}</td>
+            <td>{{row[2]}}</td>
+            <td>{{row[3]}}</td>
+            <td>{{row[4]}}</td>
+            <td>{{row[5]}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+
+    <table>
+        <tr></tr>
+        {% for row in produto %}
+        <tr>
+            <td>{{row[0]}}</td> <!--LINE WITH DATA FROM TABLE CONTACTS COLUNM ID-->
+            <td>{{row[1]}}</td>
+            <td>{{row[2]}}</td>
+            <td>{{row[3]}}</td>
+            <td>{{row[4]}}</td>
+            <td>{{row[5]}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+
+    <table>
+        <tr></tr>
+        {% for row in venda %}
+        <tr>
+            <td>{{row[0]}}</td> <!--LINE WITH DATA FROM TABLE CONTACTS COLUNM ID-->
+            <td>{{row[1]}}</td>
+            <td>{{row[2]}}</td>
+            <td>{{row[3]}}</td>
+            <td>{{row[4]}}</td>
+            <td>{{row[5]}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+
+
 </body>
 </html>
