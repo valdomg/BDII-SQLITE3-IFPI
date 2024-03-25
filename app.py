@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, flash, request
 import sqlite3
-from crud import verificarID
+
 
 app = Flask(__name__)
 
@@ -68,13 +68,102 @@ def delVenda(id):
   banco.close()
   return redirect(url_for('home'))
 
-'''
 
-@app.route('/detalharCliente/<int:id>', methods = ['GET', 'POST'])
+#Editar
+@app.route('/editarCliente/<int:id>', methods = ['GET', 'POST'])
 def editarCliente(id):
   if request.method == 'GET':
+      banco = sqlite3.connect('vendas.db')
+      cursor = banco.cursor()
 
-'''
+      cursor.execute(f'SELECT * FROM cliente WHERE idCliente = {id}')
+      cliente = cursor.fetchone()
+      cursor.close()
+      return render_template('editarCliente.html', cliente = cliente)
+    
+  elif request.method == 'POST':
+    nome = request.form['nomeCliente']
+    email = request.form['emailCliente']
+    data = request.form['dataCliente']
+    cidade = request.form['cidadeCliente']
+    tel = request.form['telCliente']
+
+    banco = sqlite3.connect('vendas.db')
+    cursor = banco.cursor()
+
+    cursor.execute('UPDATE cliente SET nome=?, email=?, data_nasc=?, cidade=?, telefone=? WHERE idCliente=?', (nome, email, data, cidade, tel, id))
+    banco.commit()
+    banco.close()
+
+    return redirect(url_for('home'))
+
+@app.route('/editarProduto/<int:id>', methods = ['GET', 'POST'])
+def editarProduto(id):
+  if request.method == 'GET':
+    banco = sqlite3.connect('vendas.db')
+    cursor = banco.cursor()
+
+    cursor.execute(f'SELECT * FROM produto WHERE idprod={id}')
+    produto = cursor.fetchone()
+    cursor.close()
+
+    return render_template('editarProduto.html', produto = produto)
+  
+  elif request.method == 'POST':
+    nomeProduto = request.form['nomeProduto']
+    preco = request.form['preco']
+    marca = request.form['marca']
+    categoria = request.form['categoria']
+    qtd = request.form['quantidade']
+
+    banco = sqlite3.connect('vendas.db')
+    cursor = banco.cursor()
+
+    cursor.execute('UPDATE produto SET nome=?, preco=?, marca=?, categoria=?, qtd=? WHERE idprod = ?',(nomeProduto, preco, marca, categoria, qtd, id))
+    banco.commit()
+    banco.close()
+    
+    return redirect(url_for('home'))
+
+@app.route('/editarVenda/<int:id>', methods = ['GET', 'POST'])
+def editarVenda(id):
+  if request.method == 'GET':
+    banco = sqlite3.connect('vendas.db')
+    cursor = banco.cursor()
+
+    cursor.execute(f'SELECT * FROM venda WHERE idvenda={id}')
+    venda = cursor.fetchone()
+    cursor.close()
+
+    return render_template('editarVenda.html', venda = venda)
+  
+  elif request.method == 'POST':
+
+    banco = sqlite3.connect('vendas.db')
+    cursor = banco.cursor()
+
+    data = request.form['dataVenda']
+    valor_total = request.form['valor']
+    idCliente = int(request.form['idCliente'])
+    idProd = request.form['idProd']
+    nomeFunc = request.form['nomeFunc']
+      
+    """if verificarID("idcliente", "cliente", idCliente):
+      cursor.execute('UPDATE venda SET data_venda=?, valor_total=?, idcliente=?, idprod=?, nomeFunc=? WHERE idvenda = ?',(data, valor_total, idCliente, idProd, nomeFunc, id))
+      banco.commit()
+      return redirect(url_for('home'))"""
+    
+def verificarID(coluna, tabela, id):
+    banco = sqlite3.connect('vendas.db')
+    cursor = banco.cursor()
+
+    cursor.execute(f'SELECT {coluna} FROM {tabela}')
+    lista = cursor.fetchall()
+    for i in range (len(lista)):
+        if id == lista[i][0]:
+            return True  
+        else:
+            i=+1
 
 if __name__ == "__main__":
   app.secret_key = 'admin123' 

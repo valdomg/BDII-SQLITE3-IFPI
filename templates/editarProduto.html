@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="/editarProduto/{{produto[0]}}">
+
+        <label for="Nome" name="nomeProduto">Nome:</label>
+        <input type="text" name="nomeProduto" value="{{produto[1]}}">
+
+        <label for="Preço" name="preco">Preço:</label>
+        <input type="text" name="preco" value="{{produto[2]}}">
+
+        <label for="Marca" name="marca">Marca:</label>
+        <input type="text" name="marca" value="{{produto[3]}}">
+
+        <label for="Categoria" name="categoria">Produto:</label>
+        <input type="text" name="categoria" value="{{produto[4]}}">
+
+        <label for="Quantidade" name="quantidade">Quantidade:</label>
+        <input type="number" name="quantidade" value="{{produto[5]}}">
+
+        <input type="submit" value="Editar">
+
+        <a href="{{url_for('home' ) }}">Home</a>
+
+    </form>
+</body>
+</html>
