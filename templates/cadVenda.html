@@ -6,7 +6,10 @@
     <title>Cadastrar Venda</title>
 </head>
 <body>
-    <form method="post" action="{{ url_for('cadVenda' ) }}">
+
+    <h1>Cadastro de Vendas</h1>
+
+    <form method="post" action="{{url_for('cadVenda')}}">
 
         <label for="Data" name="dataVenda">Data Venda:</label>
         <input type="text" name="dataVenda">
@@ -25,6 +28,6 @@
 
         <input type="submit" value="CADASTRAR">
 
-        <a href="{{url_for('home' ) }}">Home</a>
+        <a href="{{url_for('home')}}">Home</a>
 </body>
 </html>

@@ -1,0 +1,179 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container{
+
+}
+
+h2{
+    background-color:  #4CAF50;
+    text-align: center;
+    font-size: 45px;
+    color: white;
+    border-radius: 20px;
+    padding-left: 5px;
+}
+
+
+th ,td{
+    border: 1px solid;
+    font-size: 15px;    
+    padding: 10px;
+}
+
+.cliente{
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adicionando a sombra */
+    background-color: #ffffff;
+    border-radius: 55px;
+    padding: 50px;
+}
+
+.cadastro-cliente {
+    align-items: center;
+    text-align: center;
+    width: 650px;
+    margin-top: 2px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    
+    
+}
+
+.cadastro-cliente h1 {
+    
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.cadastro-cliente label {
+    padding-left: 150px;
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.cadastro-cliente input[type="text"],
+.cadastro-cliente input[type="tel"] {
+    width: calc(100% - 300px);
+    padding: 10px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.cadastro-cliente input[type="submit"] {
+    font-weight: bold;
+    margin-top: 5px;
+    width: calc(100% - 300px);
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cadastro-cliente input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+.table-cliente {
+    text-align: center;
+    border-collapse: collapse ;
+    border-color: black;
+    width: 70%;
+
+    margin-left: 50px;
+}
+
+.cadastro-cliente{
+    margin-left: 30px;
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 4px;
+    
+}
+
+
+/*-------------------------------------------------------------------------*/
+
+.produto{
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adicionando a sombra */
+    background-color: #ffffff;
+    border-radius: 55px;
+    padding: 50px;
+}
+
+.cadastro-prod {
+    align-items: center;
+    text-align: center;
+    width: 650px;
+    margin-top: 2px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    
+    
+}
+
+.cadastro-prod h1 {
+    
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.cadastro-prod label {
+    padding-left: 150px;
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.cadastro-prod input[type="text"],
+.cadastro-prod input[type="number"] {
+    width: calc(100% - 300px);
+    padding: 10px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.cadastro-prod input[type="submit"] {
+    font-weight: bold;
+    margin-top: 5px;
+    width: calc(100% - 300px);
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cadastro-prod input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+.table-prod {
+    text-align: center;
+    border-collapse: collapse ;
+    border-color: black;
+    width: 70%;
+    margin-left: 50px;
+}
+
+.cadastro-prod{
+    margin-left: 30px;
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 4px;
+    
+}

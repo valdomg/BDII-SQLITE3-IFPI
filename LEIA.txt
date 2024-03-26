@@ -1,0 +1,2 @@
+Professor, por eu não ter achado uma forma de mostrar mensagens no navegador 
+caso alguma operação não for commitada, confira nos dados da tabela se a operação foi completada

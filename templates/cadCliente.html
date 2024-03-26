@@ -7,14 +7,25 @@
 </head>
 <body>
 
-    <h1>Funcionando</h1>
+    <h1>Cadastro de Clientes</h1>
 
    <form method="POST" action="{{url_for('cadCliente')}}">
-        Nome: <input type="text" name="nomeCliente">
-        Email: <input type="email" name="emailCliente">
-        Data Nascimento: <input type="text" name="dataCliente">
-        Cidade <input type="text" name="cidadeCliente">
-        Telefone <input type="number" name="telCliente">
+
+        <label for="Nome" name="nomeCliente">Nome:</label>
+        <input type="text" name="nomeCliente">
+
+        <label for="Email" name="emailCliente">Email:</label>
+        <input type="text" name="emailCliente">
+
+        <label for="Data Nasc" name="dataCliente">Data Nascimento:</label>
+        <input type="text" name="dataCliente">
+
+        <label for="Cidade" name="cidadeCliente">Cidade:</label>
+        <input type="text" name="cidadeCliente">
+
+        <label for="Nome" name="telCliente">Telefone:</label>
+        <input type="tel" name="telCliente">
+
 
         <input type="submit" value="Adicionar">
     </form>

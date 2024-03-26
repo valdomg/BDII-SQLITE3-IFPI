@@ -132,10 +132,10 @@ def delRegistroCliente(id):
     else:
         print('ID INVÁLIDO, TENTE NOVAMENTE')
         
-if verificarID('cliente', 'idcliente', 5) and verificarID('produto', 'idprod', 7):
+'''if verificarID('cliente', 'idcliente', 5) and verificarID('produto', 'idprod', 7):
     print('Tem IDS')
     cursor.execute('UPDATE venda SET data_venda=?, valor_total=?, idcliente=?, idprod=?, nomeFunc=? WHERE idvenda = ?',('2023-01-02', 450, 5, 7, 'patas', 1))
     banco.commit()
     banco.close()
 else:
-    print('Não tem')
+    print('Não tem')'''
