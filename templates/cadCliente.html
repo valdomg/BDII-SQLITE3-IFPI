@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Funcionando</h1>
+
+   <form method="POST" action="{{url_for('cadCliente')}}">
+        Nome: <input type="text" name="nomeCliente">
+        Email: <input type="email" name="emailCliente">
+        Data Nascimento: <input type="text" name="dataCliente">
+        Cidade <input type="text" name="cidadeCliente">
+        Telefone <input type="number" name="telCliente">
+
+        <input type="submit" value="Adicionar">
+    </form>
+
+    <a class="button" href="{{url_for('home') }}">Home</a>
+   
+
+</body>
+</html>

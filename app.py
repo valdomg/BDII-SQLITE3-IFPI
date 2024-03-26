@@ -5,7 +5,7 @@ import sqlite3
 app = Flask(__name__)
 
 #READ
-@app.route("/")
+@app.route('/')
 def home():
   banco = sqlite3 .connect('vendas.db')
   cursor = banco.cursor()
@@ -22,18 +22,73 @@ def home():
   banco.close()
   return render_template('home.html', cliente = cliente, produto = produto, venda = venda)
 
+
+
 #CREATE
-@app.route('/addCliente')
-def addCliente():
-  return render_template('addCliente.html')
+@app.route('/renderCad') #ROTA PARA RENDERIZAR A PÁGINA DE CADASTRO
+def addCliente(): #FUNÇÃO COM NOME IGUAL A PÁGINA DE FORMULÁRIO
+  return render_template ('cadCliente.html') #RENDERIZAR A PÁGINA DE CADASTRO
 
-@app.route('/addProduto')
-def addProduto():
-  return render_template('addProduto.html')
+@app.route('/addCliente', methods=['POST']) #ROTA COM MÉTODO POST
+def cadCliente(): #FUNÇÃO DE CADASTRO QUE IRÁ FUNCIONAR DENTRO DA FUNÇÃO ADDCLIENTE
+  nome = request.form['nomeCliente']
+  email = request.form['emailCliente']
+  data = request.form['dataCliente']
+  cidade = request.form['cidadeCliente']
+  tel = request.form['telCliente']
 
-@app.route('/addVenda')
+  banco = sqlite3.connect('vendas.db')
+  cursor = banco.cursor()
+
+  cursor.execute('INSERT INTO cliente VALUES(?,?,?,?,?,?)',(None,nome, email, data, cidade, tel))
+  banco.commit()
+  banco.close()
+
+  return redirect(url_for('home'))
+
+@app.route('/renderProd')
+def addProd():
+  return render_template('cadProduto.html')
+
+@app.route('/addProduto', methods = ['POST'])
+def cadProduto():
+  
+  nomeProduto = request.form['nomeProduto']
+  preco = request.form['preco']
+  marca = request.form['marca']
+  categoria = request.form['categoria']
+  qtd = request.form['quantidade']
+
+  banco = sqlite3.connect('vendas.db')
+  cursor = banco.cursor()
+
+  cursor.execute('INSERT INTO produto VALUES (?,?,?,?,?,?)', (None,nomeProduto, preco, marca, categoria, qtd))
+  banco.commit()
+  banco.close()
+
+  return redirect(url_for('home'))
+
+@app.route('/renderVenda')
 def addVenda():
-  return render_template('addVenda.html')
+  return render_template('cadVenda.html')
+
+@app.route('/addVenda', methods = ['POST'])
+def cadVenda():
+  banco = sqlite3.connect('vendas.db')
+  cursor = banco.cursor()
+
+  data = request.form['dataVenda']
+  valor_total = request.form['valor']
+  idCliente = int(request.form['idCliente'])
+  idProd = request.form['idProd']
+  nomeFunc = request.form['nomeFunc']
+
+  if verificarID("idcliente", "cliente", int(idCliente)) and verificarID('idprod', 'produto', int(idProd)):
+    cursor.execute('INSERT INTO venda VALUES (?,?,?,?,?,?)',(None, data, valor_total, idCliente, idProd, nomeFunc))
+    banco.commit()
+    banco.close()
+
+  return redirect(url_for('home'))
 
 #DELETE
 @app.route('/delCliente/<int:id>', methods = ['GET'])
@@ -148,10 +203,13 @@ def editarVenda(id):
     idProd = request.form['idProd']
     nomeFunc = request.form['nomeFunc']
       
-    """if verificarID("idcliente", "cliente", idCliente):
+    if verificarID("idcliente", "cliente", int(idCliente)) and verificarID('idprod', 'produto', int(idProd)):
       cursor.execute('UPDATE venda SET data_venda=?, valor_total=?, idcliente=?, idprod=?, nomeFunc=? WHERE idvenda = ?',(data, valor_total, idCliente, idProd, nomeFunc, id))
       banco.commit()
-      return redirect(url_for('home'))"""
+      banco.close()
+    else:
+      flash('IDS INVÁLIDOS, TENTE NOVAMENTE')
+    return redirect(url_for('home'))
     
 def verificarID(coluna, tabela, id):
     banco = sqlite3.connect('vendas.db')
@@ -161,9 +219,7 @@ def verificarID(coluna, tabela, id):
     lista = cursor.fetchall()
     for i in range (len(lista)):
         if id == lista[i][0]:
-            return True  
-        else:
-            i=+1
+            return True 
 
 if __name__ == "__main__":
   app.secret_key = 'admin123' 

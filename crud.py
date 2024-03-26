@@ -1,4 +1,10 @@
+
 import sqlite3
+
+banco = sqlite3.connect('vendas.db')
+
+    #DEPENDECY INJECTION
+cursor = banco.cursor()
 
 def criarTabelas():#CREATING DB
     banco = sqlite3.connect('vendas.db')
@@ -53,13 +59,15 @@ def verificarID(tabela, coluna, id):
     banco = sqlite3.connect('vendas.db')
     cursor = banco.cursor()
 
+    resultado = None
+
     cursor.execute(f'SELECT {coluna} FROM {tabela}')
     lista = cursor.fetchall()
     for i in range (len(lista)):
         if id == lista[i][0]:
-            return True  
-        else:
-            i=+1
+            resultado = True
+
+    return resultado
 
 
 #Função de inserção para Clientes
@@ -124,3 +132,10 @@ def delRegistroCliente(id):
     else:
         print('ID INVÁLIDO, TENTE NOVAMENTE')
         
+if verificarID('cliente', 'idcliente', 5) and verificarID('produto', 'idprod', 7):
+    print('Tem IDS')
+    cursor.execute('UPDATE venda SET data_venda=?, valor_total=?, idcliente=?, idprod=?, nomeFunc=? WHERE idvenda = ?',('2023-01-02', 450, 5, 7, 'patas', 1))
+    banco.commit()
+    banco.close()
+else:
+    print('Não tem')
