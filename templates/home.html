@@ -7,65 +7,72 @@
 </head>
 <body>
     <h1>Supermercado AloiUala</h1>
-    <table>
-        <tr></tr>
-        {% for row in cliente %}
-        <tr>
-            <td>{{row[0]}}</td> <!--LINE WITH DATA FROM TABLE CONTACTS COLUNM ID-->
-            <td>{{row[1]}}</td>
-            <td>{{row[2]}}</td>
-            <td>{{row[3]}}</td>
-            <td>{{row[4]}}</td>
-            <td>{{row[5]}}</td>
-            <td>
-                <a href="{{url_for('delCliente', id=row[0])}}">Deletar</a>
-                <a href="{{url_for('editarCliente', id=row[0])}}">Editar</a>
-            </td>
+    <div class="container">
 
-        </tr>
-        {% endfor %}
-    </table>
+        <table>
+            <tr></tr>
+            {% for row in cliente %}
+            <tr>
+                <td>{{row[0]}}</td> <!--LINE WITH DATA FROM TABLE CONTACTS COLUNM ID-->
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+                <td>{{row[4]}}</td>
+                <td>{{row[5]}}</td>
+                <td>
+                    <a href="{{url_for('delCliente', id=row[0])}}">Deletar</a>
+                    <a href="{{url_for('editarCliente', id=row[0])}}">Editar</a>
+                </td>
 
-    <table>
-        <tr></tr>
-        {% for row in produto %}
-        <tr>
-            <td>{{row[0]}}</td> <!--LINE WITH DATA FROM TABLE CONTACTS COLUNM ID-->
-            <td>{{row[1]}}</td>
-            <td>{{row[2]}}</td>
-            <td>{{row[3]}}</td>
-            <td>{{row[4]}}</td>
-            <td>{{row[5]}}</td>
-            <td>
-                <a href="{{url_for('delProduto', id=row[0])}}">Deletar</a>
-                <a href="{{url_for('editarProduto', id=row[0])}}">Editar</a>
-            </td>
+            </tr>
+            {% endfor %}
+        </table>
 
-        </tr>
-        {% endfor %}
-    </table>
+        <table>
+            <tr></tr>
+            {% for row in produto %}
+            <tr>
+                <td>{{row[0]}}</td> <!--LINE WITH DATA FROM TABLE CONTACTS COLUNM ID-->
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+                <td>{{row[4]}}</td>
+                <td>{{row[5]}}</td>
+                <td>
+                    <a href="{{url_for('delProduto', id=row[0])}}">Deletar</a>
+                    <a href="{{url_for('editarProduto', id=row[0])}}">Editar</a>
+                </td>
 
-    <table>
-        <tr></tr>
-        {% for row in venda %}
-        <tr>
-            <td>{{row[0]}}</td> <!--LINE WITH DATA FROM TABLE CONTACTS COLUNM ID-->
-            <td>{{row[1]}}</td>
-            <td>{{row[2]}}</td>
-            <td>{{row[3]}}</td>
-            <td>{{row[4]}}</td>
-            <td>{{row[5]}}</td>
-            <td>
-                <a href="{{url_for('delVenda', id=row[0])}}">Deletar</a>
-                <a href="{{url_for('editarVenda', id=row[0])}}">Editar</a>
-                
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-    <a href="{{ url_for('addCliente')}}">CAD CLIENTE</a>
-    <a href="{{ url_for('addProd')}}">CAD PRODUTO</a>
-    <a href="{{ url_for('addVenda')}}">CAD VENDA</a>
+            </tr>
+            {% endfor %}
+        </table>
 
+        <table>
+            <tr></tr>
+            {% for row in venda %}
+            <tr>
+                <td>{{row[0]}}</td> <!--LINE WITH DATA FROM TABLE CONTACTS COLUNM ID-->
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+                <td>{{row[4]}}</td>
+                <td>{{row[5]}}</td>
+                <td>
+                    <a href="{{url_for('delVenda', id=row[0])}}">Deletar</a>
+                    <a href="{{url_for('editarVenda', id=row[0])}}">Editar</a>
+                    
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+    <div class="buttons">
+        <a href="{{ url_for('addCliente')}}">CAD CLIENTE</a>
+        <a href="{{ url_for('addProd')}}">CAD PRODUTO</a>
+        <a href="{{ url_for('addVenda')}}">CAD VENDA</a>
+    </div>
+    
 </body>
 </html>
