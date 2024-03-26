@@ -1,13 +1,46 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(231, 231, 231);
+    align-items: center;
 }
 
-.container{
+header {
+    color: white;
+    background-color: #45a049;
+    height: 100px;
+    
+    text-align: center;
+    
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
+header h1 {
+    margin-top: 5px;
+    color: white;
+    font-size: 75px;
+}
+
+footer{
+    margin-top: 20px;
+    text-align: center;
+    align-items: center;
+}
+.container{
+}
+
+.title{
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    margin-left: 25%;
+    margin-bottom: 0px;
 }
 
 h2{
-    background-color:  #4CAF50;
+    background-color:  #2fa2d8;
     text-align: center;
     font-size: 45px;
     color: white;
@@ -15,23 +48,35 @@ h2{
     padding-left: 5px;
 }
 
+.buttons-table #del, #edit{
+    margin-left: 5px;
+    padding: 5px;
+    color: white;
+    background-color: #45a049;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
 
 th ,td{
     border: 1px solid;
     font-size: 15px;    
-    padding: 10px;
+    padding: 5px;
 }
 
-.cliente{
+.table-div{
+    
     display: flex;
     flex-direction: row;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adicionando a sombra */
     background-color: #ffffff;
     border-radius: 55px;
     padding: 50px;
+    width: 75%;
+    margin-left: 10%;
 }
 
-.cadastro-cliente {
+.form {
     align-items: center;
     text-align: center;
     width: 650px;
@@ -43,20 +88,20 @@ th ,td{
     
 }
 
-.cadastro-cliente h1 {
+.form h1 {
     
     margin-top: 0px;
     margin-bottom: 10px;
 }
 
-.cadastro-cliente label {
+.form label {
     padding-left: 150px;
     display: flex;
     margin-bottom: 5px;
 }
 
-.cadastro-cliente input[type="text"],
-.cadastro-cliente input[type="tel"] {
+.form input[type="text"],
+.form input[type="tel"] {
     width: calc(100% - 300px);
     padding: 10px;
     margin-bottom: 5px;
@@ -65,7 +110,16 @@ th ,td{
     border-radius: 5px;
 }
 
-.cadastro-cliente input[type="submit"] {
+.form input[type="number"] {
+    width: calc(100% - 300px);
+    padding: 10px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.form input[type="submit"] {
     font-weight: bold;
     margin-top: 5px;
     width: calc(100% - 300px);
@@ -77,21 +131,11 @@ th ,td{
     cursor: pointer;
 }
 
-.cadastro-cliente input[type="submit"]:hover {
+.form input[type="submit"]:hover {
     background-color: #45a049;
 }
 
-
-.table-cliente {
-    text-align: center;
-    border-collapse: collapse ;
-    border-color: black;
-    width: 70%;
-
-    margin-left: 50px;
-}
-
-.cadastro-cliente{
+.form{
     margin-left: 30px;
     margin-bottom: 15px;
     padding: 8px;
@@ -100,52 +144,87 @@ th ,td{
 }
 
 
-/*-------------------------------------------------------------------------*/
+.tables {
+    text-align: center;
+    border-collapse: collapse ;
+    border-color: black;
+    width: 70%;
 
-.produto{
-    display: flex;
-    flex-direction: row;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adicionando a sombra */
-    background-color: #ffffff;
-    border-radius: 55px;
-    padding: 50px;
+    margin-left: 50px;
 }
 
-.cadastro-prod {
+
+
+/*--------------------------------------------------------------*/
+
+
+.title-page{
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+    margin-left: 36%;
+    margin-bottom: 0px;
+}
+
+.button-home {
+    margin-top: 5px;
+    position: absolute;
+    left: 50%;
+
+    align-items: center;
+    text-align: center;
+}
+
+.form-page {
     align-items: center;
     text-align: center;
     width: 650px;
+    height: 470px;
     margin-top: 2px;
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 15px;
-    
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adicionando a sombra */
+    background-color: #ffffff;
+    margin-left: 33%;
     
 }
 
-.cadastro-prod h1 {
+.form-page h1 {
     
     margin-top: 0px;
     margin-bottom: 10px;
 }
 
-.cadastro-prod label {
-    padding-left: 150px;
+.form-page label {
+    margin-top: 10px;
+    margin-left: 23%;
     display: flex;
     margin-bottom: 5px;
 }
 
-.cadastro-prod input[type="text"],
-.cadastro-prod input[type="number"] {
+.form-page input[type="text"],
+.form-page input[type="tel"] {
     width: calc(100% - 300px);
     padding: 10px;
     margin-bottom: 5px;
     box-sizing: border-box;
     border: 1px solid;
     border-radius: 5px;
+    
 }
 
-.cadastro-prod input[type="submit"] {
+.form-page input[type="number"] {
+    width: calc(100% - 300px);
+    padding: 10px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    border: 1px solid;
+    border-radius: 5px;
+    
+}
+
+.form-page input[type="submit"] {
     font-weight: bold;
     margin-top: 5px;
     width: calc(100% - 300px);
@@ -154,26 +233,15 @@ th ,td{
     color: white;
     border: none;
     border-radius: 5px;
+    
     cursor: pointer;
 }
 
-.cadastro-prod input[type="submit"]:hover {
+.form-page input[type="submit"]:hover {
     background-color: #45a049;
 }
 
 
-.table-prod {
-    text-align: center;
-    border-collapse: collapse ;
-    border-color: black;
-    width: 70%;
-    margin-left: 50px;
-}
 
-.cadastro-prod{
-    margin-left: 30px;
-    margin-bottom: 15px;
-    padding: 8px;
-    border-radius: 4px;
-    
-}
+
+

@@ -3,30 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <title>Document</title>
 </head>
 <body>
-    <form method="post" action="/editarCliente/{{cliente[0]}}">
+
+    <div class="title-page"><h2>Editar Cliente</h2></div>
+
+    <form method="post" action="/editarCliente/{{cliente[0]}}" class="form-page">
 
         <label for="Nome" name="nomeCliente">Nome:</label>
-        <input type="text" name="nomeCliente" value="{{cliente[1]}}">
+        <input type="text" name="nomeCliente" value="{{cliente[1]}}" required>
 
         <label for="Email" name="emailCliente">Email:</label>
-        <input type="text" name="emailCliente" value="{{cliente[2]}}">
+        <input type="text" name="emailCliente" value="{{cliente[2]}}" required>
 
         <label for="Data Nasc" name="dataCliente">Data Nascimento:</label>
-        <input type="text" name="dataCliente" value="{{cliente[3]}}">
+        <input type="text" name="dataCliente" value="{{cliente[3]}}" required>
 
         <label for="Cidade" name="cidadeCliente">Cidade:</label>
-        <input type="text" name="cidadeCliente" value="{{cliente[4]}}">
+        <input type="text" name="cidadeCliente" value="{{cliente[4]}}" required>
 
         <label for="Nome" name="telCliente">Telefone:</label>
-        <input type="tel" name="telCliente" value="{{cliente[5]}}">
+        <input type="tel" name="telCliente" value="{{cliente[5]}}" required> <br>
 
-        <input type="submit" value="Editar">
+        <input type="submit" value="Editar"><br>
 
-        <a href="{{url_for('home' ) }}">Home</a>
+        
+
+        
         
     </form>
+
+    <a class="button-home" href="{{url_for('home' ) }}" >Home</a>
 </body>
 </html>
