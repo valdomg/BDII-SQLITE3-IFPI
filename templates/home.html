@@ -3,69 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    
     <title>Document</title>
 </head>
 <body>
-    <h1>Supermercado AloiUala</h1>
-    <table>
-        <tr></tr>
-        {% for row in cliente %}
-        <tr>
-            <td>{{row[0]}}</td> <!--LINE WITH DATA FROM TABLE CONTACTS COLUNM ID-->
-            <td>{{row[1]}}</td>
-            <td>{{row[2]}}</td>
-            <td>{{row[3]}}</td>
-            <td>{{row[4]}}</td>
-            <td>{{row[5]}}</td>
-            <td>
-                <a href="{{url_for('delCliente', id=row[0])}}">Deletar</a>
-            </td>
+    <header>
+        <h1>Supermercado Aupy</h1>
+    </header>
 
-        </tr>
-        {% endfor %}
-    </table>
+    <div class="container">
+        <div class="title"><h2>Clientes</h2></div>
+        <div class="table-div">
+            <table class="tables">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Data Nascimento</th>
+                        <th>Cidade</th>
+                        <th>Telefone</th>
+                        <th>Ações</th>
+                    </tr>
+                    {% for row in cliente %}
+                    <tr>
+                        <td>{{row[0]}}</td> <!--LINE WITH DATA FROM TABLE CONTACTS COLUNM ID-->
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}</td>
+                        <td>{{row[4]}}</td>
+                        <td>{{row[5]}}</td>
+                        <td>
+                            <div class="buttons-table">
+                                <a href="{{url_for('delCliente', id=row[0])}}" id="del">Deletar</a>
+                                <a href="{{url_for('editarCliente', id=row[0])}}"id="edit">Editar</a>
+                            </div>
+                        </td>
 
-    <table>
-        <tr></tr>
-        {% for row in produto %}
-        <tr>
-            <td>{{row[0]}}</td> <!--LINE WITH DATA FROM TABLE CONTACTS COLUNM ID-->
-            <td>{{row[1]}}</td>
-            <td>{{row[2]}}</td>
-            <td>{{row[3]}}</td>
-            <td>{{row[4]}}</td>
-            <td>{{row[5]}}</td>
-            <td>
-                <a href="{{url_for('delProduto', id=row[0])}}">Deletar</a>
-            </td>
+                    </tr>
+                    {% endfor %}
+            
+            </table>
 
-        </tr>
-        {% endfor %}
-    </table>
+            <form method="POST" action="{{url_for('cadCliente')}}" class="form">
 
-    <table>
-        <tr></tr>
-        {% for row in venda %}
-        <tr>
-            <td>{{row[0]}}</td> <!--LINE WITH DATA FROM TABLE CONTACTS COLUNM ID-->
-            <td>{{row[1]}}</td>
-            <td>{{row[2]}}</td>
-            <td>{{row[3]}}</td>
-            <td>{{row[4]}}</td>
-            <td>{{row[5]}}</td>
-            <td>
-                <a href="{{url_for('delVenda', id=row[0])}}">Deletar</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
+                <h1>Cadastro de Clientes</h1>
 
-    <div class="button">
-        <a href="{{url_for('addCliente')}}">Adicionar Cliente</a>
-        <a href="{{url_for('addProduto')}}">Adicionar Produto</a>
-        <a href="{{url_for('addVenda')}}">Adicionar Venda</a>
+                <label for="Nome" name="nomeCliente">Nome:</label>
+                <input type="text" name="nomeCliente" required><br>
+        
+                <label for="Email" name="emailCliente">Email:</label>
+                <input type="text" name="emailCliente" required><br>
+        
+                <label for="Data Nasc" name="dataCliente">Data Nascimento:</label>
+                <input type="text" name="dataCliente" required><br>
+        
+                <label for="Cidade" name="cidadeCliente">Cidade:</label>
+                <input type="text" name="cidadeCliente" required><br>
+        
+                <label for="Nome" name="telCliente">Telefone:</label>
+                <input type="tel" name="telCliente" required><br>
+        
+        
+                <input type="submit" value="CADASTRAR">
+            </form>
+        </div>
+
+        <div class="title"><h2>Clientes</h2></div>
+        <div class="table-div">
+            
+            <table class="tables">
+            
+                <tr>
+                    <th>ID</th>
+                    <th>NOME</th>
+                    <th>PREÇO</th>
+                    <th>MARCA</th>
+                    <th>CATEGORIA</th>
+                    <th>QUANTIDADE</th>
+                    <th>AÇÕES</th>
+                </tr>
+                {% for row in produto %}
+                <tr>
+                    <td>{{row[0]}}</td> <!--LINE WITH DATA FROM TABLE CONTACTS COLUNM ID-->
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                    <td>{{row[5]}}</td>
+                    <td>
+                        <div class="buttons-table">
+                            <a href="{{url_for('delProduto', id=row[0])}}" id="del">Deletar</a>
+                            <a href="{{url_for('editarProduto', id=row[0])}}" id="edit">Editar</a>
+                        </div>
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </table>
+
+            <form method="post" action="{{url_for('cadProduto')}}" class="form">
+
+                <h1>Cadastro de Produto</h1>
+
+                <label for="Nome" name="nomeProduto">Nome:</label>
+                <input type="text" name="nomeProduto" required>
+        
+                <label for="Preço" name="preco">Preço:</label>
+                <input type="text" name="preco" required>
+        
+                <label for="Marca" name="marca">Marca:</label>
+                <input type="text" name="marca" required>
+        
+                <label for="Categoria" name="categoria">Categoria:</label>
+                <input type="text" name="categoria" required>
+        
+                <label for="Quantidade" name="quantidade">Quantidade:</label>
+                <input type="tel" name="quantidade" required><br>
+        
+                <input type="submit" value="CADASTRAR">
+            </form>
+        </div>
+
+        <div class="title"><h2>Clientes</h2></div>
+        <div class="table-div">
+            <table class="tables">
+                
+                <tr>
+                    <th>ID</th>
+                    <TH>DATA</TH>
+                    <TH>VALOR TOTAL</TH>
+                    <TH>ID CLIENTE</TH>
+                    <TH>ID PRODUTO</TH>
+                    <TH>FUNCIONÁRIO</TH>
+                    <TH>AÇÕES</TH>
+                </tr>
+                {% for row in venda %}
+                <tr>
+                    <td>{{row[0]}}</td> <!--LINE WITH DATA FROM TABLE CONTACTS COLUNM ID-->
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                    <td>{{row[5]}}</td>
+                    <td>
+                        <div class="buttons-table">
+                            <a href="{{url_for('delVenda', id=row[0])}}" id="del">Deletar</a>
+                            <a href="{{url_for('editarVenda', id=row[0])}}" id="edit">Editar</a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        
+
+            <form method="post" action="{{url_for('cadVenda')}}" class="form">
+                <h1>Cadastro de Vendas</h1>
+
+                <label for="Data" name="dataVenda">Data Venda:</label>
+                <input type="text" name="dataVenda" required>
+        
+                <label for="valor" name="valor">Valor Total:</label>
+                <input type="number" name="valor" required>
+        
+                <label for="idCliente" name="idCliente">ID Cliente:</label>
+                <input type="number" name="idCliente" required>
+        
+                <label for="idProduto" name="idProd">ID Produto:</label>
+                <input type="number" name="idProd" required>
+        
+                <label for="Funcionario" name="nomeFunc">Funcionário:</label>
+                <input type="text" name="nomeFunc" required><br>
+        
+                <input type="submit" value="CADASTRAR">
+
+            </form>
+        </div>
     </div>
 
-
+    <footer>
+        <p>Desenvolvido por Valdemiro Gabriel</p>
+    </footer>
+    
 </body>
 </html>
