@@ -64,6 +64,11 @@ th ,td{
     padding: 5px;
 }
 
+td:nth-child(7){
+    background-color: #ffffff;
+    width: 150px;
+}
+
 .table-div{
     
     display: flex;
