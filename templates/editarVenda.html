@@ -8,28 +8,34 @@
 </head>
 <body>
 
-    <div class="title"><h2>Editar Venda</h2></div>
+    <div class="title-page"><h2>Editar Venda</h2></div>
+    
+    <div class="form-div">
 
-    <form method="post" action="/editarVenda/{{venda[0]}}" class="form-page">
+        <form method="post" action="/editarVenda/{{venda[0]}}" class="form-page">
 
-        <label for="Data" name="dataVenda">Data Venda:</label>
-        <input type="text" name="dataVenda" value="{{venda[1]}}" required>
+            <label for="Data" name="dataVenda">Data Venda:</label>
+            <input type="text" name="dataVenda" value="{{venda[1]}}" required>
 
-        <label for="valor" name="valor">Valor Total:</label>
-        <input type="number" name="valor" value="{{venda[2]}}" required>
+            <label for="valor" name="valor">Valor Total:</label>
+            <input type="number" name="valor" value="{{venda[2]}}" required>
 
-        <label for="idCliente" name="idCliente">ID Cliente:</label>
-        <input type="number" name="idCliente" value="{{venda[3]}}" required>
+            <label for="idCliente" name="idCliente">ID Cliente:</label>
+            <input type="number" name="idCliente" value="{{venda[3]}}" required>
 
-        <label for="idProduto" name="idProd">ID Produto:</label>
-        <input type="number" name="idProd" value="{{venda[4]}}" required>
+            <label for="idProduto" name="idProd">ID Produto:</label>
+            <input type="number" name="idProd" value="{{venda[4]}}" required>
 
-        <label for="Funcionario" name="nomeFunc">Funcionário:</label>
-        <input type="text" name="nomeFunc" value="{{venda[5]}}" required> <br>
+            <label for="Funcionario" name="nomeFunc">Funcionário:</label>
+            <input type="text" name="nomeFunc" value="{{venda[5]}}" required> <br>
 
-        <input type="submit" value="Editar"><br>
+            <input type="submit" value="Editar"><br>
 
-    </form>
-        <a class="button-home" href="{{url_for('home' ) }}">Home</a>
+        </form>
+
+        
+        
+    </div>
+    <a class="button-home" href="{{url_for('home' ) }}" >Home</a>
 </body>
 </html>
