@@ -49,10 +49,11 @@ h2{
 }
 
 .buttons-table #del, #edit{
+    font-size: 15px;
     margin-left: 5px;
-    padding: 5px;
-    color: white;
-    background-color: #45a049;
+    
+    color: #45a049;
+    
     border-radius: 5px;
     font-weight: bold;
 }
@@ -61,7 +62,7 @@ h2{
 th ,td{
     border: 1px solid;
     font-size: 15px;    
-    padding: 5px;
+    padding: 3px;
 }
 
 td:nth-child(7){
@@ -166,8 +167,10 @@ td:nth-child(7){
 
 .title-page {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    padding: 5px;
 }
+
 
 
 .form-div {
