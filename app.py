@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, flash, request
 import sqlite3
+from crud import inserirProdutos
 
 
 app = Flask(__name__)
@@ -72,13 +73,13 @@ def cadProduto(): #Nome da função que será chamada no formulário
   qtd = request.form['quantidade']
 
   #Conexão com o DB
-  banco = sqlite3.connect('vendas.db')
-  cursor = banco.cursor()
-
+  #banco = sqlite3.connect('vendas.db')
+  #cursor = banco.cursor()
   #Execução da inserção de valores
-  cursor.execute('INSERT INTO produto VALUES (?,?,?,?,?,?)', (None,nomeProduto, preco, marca, categoria, qtd))
-  banco.commit()
-  banco.close()
+  #cursor.execute('INSERT INTO produto VALUES (?,?,?,?,?,?)', (None,nomeProduto, preco, marca, categoria, qtd))
+  inserirProdutos(None,nomeProduto, preco, marca, categoria, qtd)
+  #banco.commit()
+  #banco.close()
 
   #Redirecionamento para função home() que irá renderizar a página principal
   return redirect(url_for('home'))
