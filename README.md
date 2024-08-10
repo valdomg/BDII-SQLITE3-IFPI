@@ -70,7 +70,7 @@
      - Inclui uma verificação para garantir que os IDs de cliente e produto estejam presentes antes de atualizar.
     
 
-***Após a realização de cada rota em especifico é redirecionado a página inicial.***
+***Após a realização de cada rota em especifico o usuário é redirecionado a página inicial.***
 
 
 **Configuração e Execução:**
@@ -79,7 +79,7 @@
 ## Objetivos do Projeto
 - Criar uma aplicação web para gerenciar clientes, produtos e vendas em um sistema de banco de dados; e mostrar na tela para o usuário todas as informações necessárias.
 
-## Principais Tecnologias Utilizadas e/ou Pretendidas
+## Principais Tecnologias Utilizadas
 - Pyhton(Flask)
 - SQLite
 - HTML
