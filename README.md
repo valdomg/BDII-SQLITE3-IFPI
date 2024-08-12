@@ -12,11 +12,11 @@
 
 | Matrícula       | Aluno             | 
 |-----------------|-------------------|
-| 2023123TADS00   | Paulo Braga       |
-| 2023123TADS00   | Raimundo Pereira  | 
-| 2023123TADS00   | Robinson Rubens   | 
+| 2023123TADS0016 | Paulo Braga       |
+| 2023123TADS0002 | Raimundo Pereira  | 
+| 20211P2ADS0096  | Robinson Rubens   | 
 | 2023123TADS0003 | Valdemiro Gabriel | 
-| 2023123TADS00   | Valfredo Costa    |
+| 2023123TADS0018 | Valfredo Costa    |
 | 2023123TADS0037 | Yara Beatriz      | 
 
 ## Visão Geral do Projeto
