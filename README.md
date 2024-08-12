@@ -1,4 +1,4 @@
-# Repositório feito para estudos de Banco de Dados e HTML/CSS
+# Trabalho de Engenharia de Software II
 
 **Instituto Federal do Piauí - Campus Pedro II**
 
