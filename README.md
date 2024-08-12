@@ -80,7 +80,7 @@
 - Criar uma aplicação web para gerenciar clientes, produtos e vendas em um sistema de banco de dados; e mostrar na tela para o usuário todas as informações necessárias.
 
 ## Principais Tecnologias Utilizadas
-- Pyhton(Flask)
+- Python(Flask)
 - SQLite
 - HTML
 - MKDOCS
